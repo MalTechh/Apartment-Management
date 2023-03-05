@@ -39,7 +39,9 @@ Next, read in the file with that name. The file will be in this format:
 <APARTMENT 1's TENANT 2's NAME>
   
 <APARTMENT 2s NUMBER>
+  
 <...>
+  
 Here is an example input file:
 
   
@@ -73,45 +75,81 @@ void save(string fname, apartment apartments[], int num)
 The third function is list_all_apartments() which will print out the information of each apartment in the following format:
 
 Apartment #<APARTMENT 1's NUMBER>:
+  
 Monthly Rent: <APARTMENT 1's MONTHLY RENT>
+  
 Max # of Tenants: <APARTMENT 1's MAX TENANTS>
+  
 Number of Tenants: <APARTMENT 1's NUMBER OF TENANTS>
+  
 Tenants: <APARTMENT 1's TENANT 1's NAME>, <APARTMENT 1's TENANT 2's NAME>, <...>
+  
 ---
+  
 <APARTMENT 2s NUMBER>
+  
 <...>
 Total Monthly Rent Collected: $<TOTAL MONTHLY RENT>
+  
 Number of occupied units: <OCCUPIED APARTMENTS>/<ALL APARTMENTS>
+  
 ---
+  
+  
 An example output is:
 
 Apartment #1:
+  
 Monthly Rent: $800
+  
 Max # of Tenants: 2
+  
 Number of Tenants: 2
+  
 Tenants: Bobby bob, Anna Ann
+  
 ---
+  
 Apartment #2:
+  
 Monthly Rent: $900
+  
 Max # of Tenants: 4
+  
 Number of Tenants: 0
+  
 ---
+  
 Total Monthly Rent Collected: $800
+  
 Number of occupied units: 1/2
+  
 ---
+  
+  
 If the apartment has 0 tenants then do not display the Tenants: line for that apartment. Also note that the monthly rent collected for each occupied apartment is the same regardless of how many tenants it has.
 
+  
 The next function is list_available_apartments() which will print only the apartments that has room (tenants less than max_tenants). An example output is:
 
 Apartment #2:
+  
 Monthly Rent: $900
+  
 Max # of Tenants: 4
+  
 Number of Tenants: 0
+  
+  
 Then write a move_in() function that takes in the following parameters: the name of the tenant, the apartment number they're moving into, the appartment array, and the number of apartments in the array. If that apartment is already full then print "Error, the apartment cannot hold any more tenants!". Otherwise add that tenant into the apartment's tenants array and update its num_tenants, then print "Successfully moved in!".
 
+  
 The function should be defined as:
 
+  
 void move_in(string tenant_name, int apartment_num, apartment apartments[], int num_apartments)
+  
+  
 Next write a move_out() function that takes in the following parameters: the name of the tenant, the appartment array, and the number of apartments in the array. This function tries to find the tenant with that name in all of the apartments, and if found, remove that tenant from the apartment's tenants array and print "Successfully moved out.", if no such tenant is found, print "Error, there are no tenants with that name!".
 
 The function should be defined as:
@@ -123,29 +161,48 @@ First ask the user to enter the name of the file to load: "Please enter the name
 Get the file name from cin and load the file
 Print the information of all apartments
 Then start a menu loop. This menu loop should repeat indefinitely until the user selects the exit option:
+  
 Main Menu
+  
 1- List All Apartments
+  
 2- List Available Apartments
+  
 3- Move In
+  
 4- Move Out
+  
 5- Find Tenant
+  
 6- Save
+  
 7- Load
+  
 8- Exit
+  
+  
 If the user entered an invalid option, print "Invalid option!"
+  
 Option 1 will print all apartments information
+  
 Option 2 will print only the apartments that are available for rent
+  
 Option 3 will first ask the user "Enter the apartment number to move in:"
+  
 Then ask the user"Enter the name of the tenant:"
+  
 Then call the move_in() function with the correct parameters
+  
 Option 4 will first ask the user ""Enter the name of the tenant moving out:"
+  
 Then call the move_out() function with the correct parameters
+  
 Option 5 will first ask the user for the name of the tenant "Enter the name of the tenant to search for:"
+  
 If there is an apartment with that tenant then output "<NAME> in apartment #<APARTMENT NUMBER>!" otherwise print "Error, tenant not found!"
+  
 Option 6 will prompt the user to enter the file name "Enter the file name to save to:" and save everything to that file
+  
 Option 7 will prompt the user to enter the file name "Enter the file name to load from:" and load everything from that file
+  
 Option 8 will terminate the program
-Additional notes:
-
-Don't forget to close files after you finish reading/writing them!
-Make sure to use cin.ignore() or file.ignore() as needed!
