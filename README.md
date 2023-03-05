@@ -4,10 +4,16 @@ This is the assignment description:
 Write a program that manages the apartments in an apartment complex. First, create a struct named apartment (all lowercase), each apartment struct will have:
 
 number: the apartment's number
+
 monthly_rent: the monthly rent amount for this apartment
+
 max_tenants : the maximum number of tenants the apartment can hold
+
 num_tenants: how many tenants the apartment currently holds
+
 tenants: a string array that holds the name of each tenant (max 10)
+
+
 Note that while each apartment has its apartment number, the apartment number is not the same as the index of the apartment inside the apartments array! For example, given an array of 4 apartments, the apartment numbers could be 4,2,1,3 (why? because the apartment array will be sorted based on the rent price). The apartment number here is a unique identifier for that apartment, like a name to a person.
 
 The data on the entire apartment complex is stored inside a single file. Write a load function to read in all the apartment information from this file. This function should first take in a string for the filename of the file to load, an array of apartment structs (that will be updated with the corresponding apartments after the function finish loading), and the number of apartments (as this value should reflect the number of districts read from the file, it should be passed in as reference). The function declaration should look like:
@@ -17,28 +23,48 @@ void load(string fname, apartment apartments[], int &num)
 
 Next, read in the file with that name. The file will be in this format:
 
+
 <NUMBER OF APARTMENTS>
+  
 <APARTMENT 1's NUMBER>
+             
 <APARTMENT 1's MONTHLY RENT>
+  
 <APARTMENT 1's MAX TENANTS>
+             
 <APARTMENT 1's NUMBER OF TENANTS>
+  
 <APARTMENT 1's TENANT 1's NAME>
+  
 <APARTMENT 1's TENANT 2's NAME>
+  
 <APARTMENT 2s NUMBER>
 <...>
 Here is an example input file:
 
+  
 2
+  
 1
+  
 800
+  
 3
+  
 2
+  
 Anna Ann
+  
 Johny Joe
+  
 2
+  
 800
+  
 3
+  
 0
+  
 After the apartments are read, in order to assist the user with prioritizing districts, sort them in ascending order based on each apartment's monthly rent!
 
 The next function to be implemented is the save() function. This function should have the same parameters as the load() function, except none of the parameters should be passed in as reference. The function will take in the string file name of the save file and an array of apartment structs, the number of apartments. Then it saves all the information into the save file in the same format provided above.
